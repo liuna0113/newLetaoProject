@@ -17,7 +17,7 @@
   </div>
   <div class="catagory">
     <ul>
-      <li><a href="#"><i class="glyphicon glyphicon-user"></i> 管理粉丝</a></li>
+      <li><a class="now" href="#"><i class="glyphicon glyphicon-user"></i> 管理粉丝</a></li>
       <li class="cata">
         <a href="javascript:;"><i class="glyphicon glyphicon-list"></i> 分类</a>
         <div class="child" style="display: none;">
@@ -37,13 +37,35 @@
         class="glyphicon glyphicon-eye-open"></i></a>
     <a href="javascript:;" class="lt_logout pull-right glyphicon glyphicon-log-out"></a>
   </div>
-  <div class="bread">
+  <div class="container">
     <ol class="breadcrumb">
       <li><a href="#" style="color:blue">公司管理</a></li>
       <li class="active">
         <a href="javascript:;" style="color:#000">粉丝管理</a>
       </li>
     </ol>
+    <!--内容区-->
+    <div class="lt_content">
+      <!--使用artTemplte插件-->
+      <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+          <td width="10%">序号</td>
+          <td width="30%">用户名</td>
+          <td width="30%">手机号</td>
+          <td width="10%">状态</td>
+          <td width="10%">操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <!--挖个坑-->
+        </tbody>
+      </table>
+      <!--用分页的插件-->
+      <div class="text-right">
+        <ul id="paginator"></ul>
+      </div>
+    </div>
   </div>
 
 </div>
@@ -66,12 +88,31 @@
   </div>
 </div>
 
-
+<script type="text/html" id="tpl">
+  {{each rows v i}}
+  <tr>
+    <td>{{(page-1)*size+i+1}}</td>
+    <td>{{v.username}}</td>
+    <td>{{v.mobile}}</td>
+    <td>{{v.isDelete==1?"正常":"禁用"}}</td>
+    <td>
+      {{if(v.isDelete==1)}}
+      <button class="btn btn-sm btn-danger">禁用</button>
+      {{/if}}
+      {{if(v.isDelete==0)}}
+      <button class="btn btn-sm btn-default">启用</button>
+      {{/if}}
+    </td>
+  </tr>
+  {{/each}}
+</script>
 <script src="./lib/jquery/jquery.min.js"></script>
 <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
 <script src="./js/common.js"></script>
-<script src="./js/index.js"></script>
+<script src="./js/user.js"></script>
 </body>
 </html>
