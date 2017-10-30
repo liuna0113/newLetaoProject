@@ -2,9 +2,75 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Letao首页</title>
+  <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
+  <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+  <link rel="stylesheet" href="./css/common.css">
 </head>
 <body>
-111
+<div class="lt_aside">
+  <div class="brand text-center">我是papi酱</div>
+  <div class="user clearfix">
+    <img class="pull-left" src="./images/default.jpg" alt="">
+    <p class="pull-left">&nbsp;&nbsp;老板</p>
+  </div>
+  <div class="catagory">
+    <ul>
+      <li><a href="javascript:;"><i class="glyphicon glyphicon-user"></i> 管理粉丝</a></li>
+      <li class="cata">
+        <a href="javascript:;"><i class="glyphicon glyphicon-list"></i> 分类</a>
+        <div class="child" style="display: none;">
+          <a class="first" href="javascript:;">first</a>
+          <a class="second" href="javascript:;">second</a>
+        </div>
+      </li>
+      
+      <li><a href="javascript:;"><i class="glyphicon glyphicon-tags"></i> &nbsp;作品</a></li>
+    </ul>
+  </div>
+</div>
+<div class="lt_main">
+  <div class="header">
+    <a href="javascript:;" class="lt_menu pull-left glyphicon glyphicon-align-justify"></a>
+    <a href="javascript:;" class="lt_subHeader"><i class="glyphicon glyphicon-eye-open"></i> 一个集美貌与才华于一身的女子 <i
+        class="glyphicon glyphicon-eye-open"></i></a>
+    <a href="javascript:;" class="lt_logout pull-right glyphicon glyphicon-log-out"></a>
+  </div>
+  <div class="bread">
+    <ol class="breadcrumb">
+      <li><a href="#" style="color:blue">公司管理</a></li>
+      <li class="active">
+        <a href="javascript:;" style="color:#000">视频发布</a>
+      </li>
+    </ol>
+  </div>
+
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+      </div>
+      <div class="modal-body">
+        <i class="glyphicon glyphicon-info-sign"></i>您确定要退出后台管理系统吗？
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary">确认</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="./lib/jquery/jquery.min.js"></script>
+<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<script src="./lib/nprogress/nprogress.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/index.js"></script>
 </body>
 </html>
