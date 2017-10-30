@@ -121,12 +121,6 @@ ul {
   text-align: center;
 }
 
-.bread {
-  /*padding-left: 15px;*/
-  /*padding-right: 15px;*/
-  /*margin-bottom: 20px;*/
-}
-
 .lt_content .pic_left,
 .lt_content .pic_right {
   width: 45%;
@@ -135,5 +129,13 @@ ul {
 
 .lt_rooter {
   margin: 30px auto;
+}
+
+.modal-content .modal-body .input-group {
+  width: 100%;
+}
+
+.modal-content .modal-body .input-group input {
+  border-radius: 10px;
 }
 

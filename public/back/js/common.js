@@ -17,10 +17,11 @@ $(function () {
   $(document).ajaxStart(function () {
     NProgress.start();
   });
-  
-  setTimeout(function () {
-    NProgress.done();
-  }, 500);
+  $(document).ajaxStop(function () {
+    setTimeout(function () {
+      NProgress.done();
+    }, 500);
+  });
   
   //分类管理被点击的时候 显示孩子们
   // $('.cata').on('click', function () {
