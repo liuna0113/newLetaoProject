@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>登录页面</title>
+  <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
+  <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+  <link rel="stylesheet" href="./css/common.css">
+</head>
+<body style="background:#222d32">;
+
+<div class="container">
+  <div class="col-md-4 col-md-push-4">
+    <div class="text-center panel  panel-primary">
+      <div class="panel-heading">后台管理系统</div>
+      <div class="panel-body">
+        <form id="form" class="form-horizontal login_form">
+          <div class="form-group">
+            <label for="inputuserName" class="col-sm-3 control-label">用户名:</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" name="username" id="inputuserName" placeholder="请输入用户名">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword3" class="col-sm-3 control-label">密码:</label>
+            <div class="col-sm-9">
+              <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="请输入密码">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+              <button type="reset" class="reset btn btn-default pull-left">重置</button>
+              <button type="submit" class="btn btn-danger pull-right">登录</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="./lib/jquery/jquery.min.js"></script>
+<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="./lib/bootstrap-validator"></script>
+<script src="./lib/nprogress/nprogress.js"></script>
+</body>
+</html>

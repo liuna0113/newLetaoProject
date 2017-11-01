@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  var tools = {
+    getObj: function () {
+      var str = location.search;
+      str = str.substring(1);
+      var arr = [];
+      var obj = {};
+      arr = str.split('&');
+      arr.forEach(function (v, i) {
+        obj[v.split('=')[0]] = v.split('=')[1];
+      });
+      return obj;
+    },
+    getObjContent: function (key) {
+      return this.getObj()[key];
+    }
+  };
+  tools.getObjContent('desc');
+
+</script>
+</body>
+</html>
