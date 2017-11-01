@@ -26,7 +26,7 @@
           <a class="second now" href="#">second</a>
         </div>
       </li>
-
+      
       <li><a href="product.html"><i class="glyphicon glyphicon-tags"></i> &nbsp;作品</a></li>
     </ul>
   </div>
@@ -49,8 +49,9 @@
         </li>
       </ol>
     </div>
+    <button class="myaddBtn btn btn-primary btn-lg" style="margin-bottom:15px">添加分类</button>
     <div class="lt_content">
-      <table class="table table-bordered table-hover">
+      <table class="table table-bordered table-hover text-center">
         <thead>
         <tr>
           <td width="10%">序号</td>
@@ -67,7 +68,7 @@
         <ul id="paginator3"></ul>
       </div>
     </div>
-
+  
   </div>
 </div>
 <!--弹出层 模态框-->
@@ -89,12 +90,79 @@
     </div>
   </div>
 </div>
+<div class="modal fade" tabindex="-1" id="myModal2">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">添加分类</h4>
+      </div>
+      <div class="modal-body">
+        <form id="form">
+          <div class="form-group">
+            <div class="dropdown">
+              <span>一级分类:</span>
+              <button class="btn btn-default dropdown-toggle" aria-haspopup="true" aria-expanded="true"
+                      data-toggle="dropdown" type="button" id="dropdownMenu1">请选择
 
+                <span class="caret"></span>
+              </button>
+              <input id="categoryId" type="hidden" name="categoryId">
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 
-<script src="./lib/jquery/jquery.min.js"></script>
+              </ul>
+
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" name="brandName" class="form-control" id="brandName"
+                   placeholder="请输入二级分类名称">
+          </div>
+          <div class="form-group upfile fileupload_box">
+            <button class="btn btn-default">上传图片</button>
+            <input type="file" id="fileupload" name="pic1" data-url="/category/addSecondCategoryPic">
+          </div>
+          <div class="form-group img">
+            <img id="brand-img" src="./images/none.png" width="80px" height="80px" alt="">
+            <input type="hidden" name="brandLogo" id="brandLogo">
+          </div>
+          <div class="form-group">
+            <input type="hidden" name="hot" value="1">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="submit" form="form" class="addCate btn btn-primary">确认</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/html" id="tpl">
+  {{each rows v i}}
+  <tr>
+    <td>{{(page-1)*size+i+1}}</td>
+    <td>{{v.categoryName}}</td>
+    <td>{{v.brandName}}</td>
+    <td><img src="{{v.brandLogo}}" alt="" width="50px" height="50px"></td>
+  </tr>
+  {{/each}}
+</script>
+<script type="text/html" id="tpl2">
+  {{each rows v i}}
+  <li><a href="javascript:;" data-id="{{v.categoryId}}">{{v.brandName}}</a></li>
+  {{/each}}
+</script>
+<script src="./lib/jquery/jquery.js"></script>
+<script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
 <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
 <script src="./js/common.js"></script>
 <script src="./js/second.js"></script>
 </body>

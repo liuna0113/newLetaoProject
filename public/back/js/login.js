@@ -69,6 +69,7 @@ $(function () {
     })
   });
   
+  //重置的是验证表单
   $(".reset").on("click", function () {
     bv.resetForm();
   });

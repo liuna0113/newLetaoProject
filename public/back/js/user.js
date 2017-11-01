@@ -38,5 +38,33 @@ $(function () {
   
   render();
   
+  //首先需要摁到启用或者禁用按钮,但是由于这个东西他不是直接就有的,所以需要用委托事件来渲染
+  $('tbody').on('click', '.btn', function () {
+    // console.log(1);
+    $('#userModal').modal('show');
+    var id = $(this).parent().data('id');
+    var isDelete = $(this).parent().data('isDelete');
+    // console.log(isDelete);
+    isDelete = (isDelete === 1) ? 0 : 1;
+    // console.log(id);
+    $('.confirm_modify').off().on('click', function () {
+      $.ajax({
+        type: "post",
+        url: "/user/updateUser",
+        data: {
+          id: id,
+          isDelete: isDelete
+        },
+        success: function (data) {
+          // console.log(data);
+          if (data.success) {
+            $('#userModal').modal('hide');
+            render();
+          }
+        }
+      })
+    })
+  })
+  
   
 })
