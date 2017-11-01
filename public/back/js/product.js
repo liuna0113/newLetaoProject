@@ -1,6 +1,7 @@
 $(function () {
   var currentPage = 1;
   var pageSize = 4;
+  var imgArr = [];
   
   function render() {
     $.ajax({
@@ -52,18 +53,20 @@ $(function () {
     //拿到a标签标记的categoryId值,把这个值给隐藏域
     $('#brandId').val($(this).data("id"));
     
-    //由于这里是个隐藏域,让categoryId的表单校验通过
-    $('#form').data("bootstrapValidator").updateStatus("categoryId", "VALID");
+    //由于这里是个隐藏域,让brandId的表单校验通过
+    $('#form').data("bootstrapValidator").updateStatus("brandId", "VALID");
   });
   
   $('#fileupload').fileupload({
     dataType: 'json',
     done: function (e, data) {
-      // var src = data.result.picAddr;
-      // $('.img img').attr('src', src);
-      // $('#brandLogo').val(src);
-      // $('#form').data('bootstrapValidator').updateStatus('brandLogo', "VALID");
-      $('.img_box').append('<img src="' + data.result.picAddr + '" width="100" height="100">')
+      $('.img_box').append('<img src="' + data.result.picAddr + '" width="100" height="100">');
+
+      imgArr.push(data.result);
+      if (imgArr.length == 3) {
+        $('#form').data('bootstrapValidator').updateStatus('productLogo', 'VALID');
+      }
+
     }
   });
   
@@ -131,17 +134,40 @@ $(function () {
             message: "请填写大于0的数字"
           }
         }
-      }
+      },
+      productLogo: {
+        validators: {
+          notEmpty: {
+            message: "请上传三张图片"
+          },
+        }
+      },
     }
   }).on('success.form.bv', function (e) {
     e.preventDefault();
-    // $.ajax({
-    //   type: "post",
-    //   url: "/product/addProduct",
-    //   data: $('#form').serialize(),
-    //   success: function (data) {
-    //    
-    //   }
-    // })
+    // console.log($('#form').serialize());
+    var tem = $('#form').serialize();
+    // console.log(imgArr);
+    tem += "&picName=" + imgArr[0].picName + "&picAddr=" + imgArr[0].picName;
+    tem += "&picName=" + imgArr[1].picName + "&picAddr=" + imgArr[1].picName;
+    tem += "&picName=" + imgArr[2].picName + "&picAddr=" + imgArr[2].picName;
+    // console.log(tem);
+    $.ajax({
+      type: "post",
+      url: "/product/addProduct",
+      data: tem,
+      success: function (data) {
+        //隐藏模态框
+        $('#myModal2').modal('hide');
+        //渲染第一页
+        currentPage = 1;
+        render();
+        //重置表单
+        $('#form')[0].reset();
+        $('#form').data('bootstrapValidator').resetForm();
+        $('#dropdownMenu1').text('请选择二级分类');
+        $('.img_box').remove('img');
+      }
+    })
   })
 })
