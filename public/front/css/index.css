@@ -13,8 +13,6 @@
   
 }
 
-
-
 .lt_product .item {
   width: 48%;
   float: left;
@@ -24,6 +22,11 @@
   border: 1px solid #ccc;
   padding: 10px 5px;
   text-align: center;
+}
+
+.lt_product .item span {
+  color: #666;
+  font-size: 14px;
 }
 
 .lt_product .item img {

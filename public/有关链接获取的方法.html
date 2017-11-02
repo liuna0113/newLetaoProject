@@ -14,7 +14,7 @@
       var obj = {};
       arr = str.split('&');
       arr.forEach(function (v, i) {
-        obj[v.split('=')[0]] = v.split('=')[1];
+        obj[v.split('=')[0]] = decodeURI(v.split('=')[1]);
       });
       return obj;
     },
