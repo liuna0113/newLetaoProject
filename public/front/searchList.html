@@ -27,13 +27,13 @@
           <button class="search_btn">搜索</button>
         </div>
         <div class="lt_nav mui-clearfix">
-          <a href="javascript:;">上架时间<span class="fa fa fa-angle-down"></span></a>
-          <a data-type="price" href="javascript:;">价格<span class="fa fa fa-angle-down"></span></a>
-          <a data-type="num" href="javascript:;">库存<span class="fa fa fa-angle-down"></span></a>
-          <a href="javascript:;">折扣<span class="fa fa fa-angle-down"></span></a>
+          <a href="javascript:;">上架时间<span class="fa fa-angle-down"></span></a>
+          <a data-type="price" href="javascript:;">价格<span class="fa fa-angle-down"></span></a>
+          <a data-type="num" href="javascript:;">库存<span class="fa fa-angle-down"></span></a>
+          <a href="javascript:;">折扣<span class="fa fa-angle-down"></span></a>
         </div>
         <div class="lt_product mui-clearfix">
-
+          <!--坑在这里-->
         </div>
       </div>
     </div>
@@ -56,15 +56,15 @@
 </div>
 <script type="text/html" id="tpl">
   {{each data v i}}
-  <a class="item" href="javascript:;">
+  <a class="item" href="productList.html?productId={{v.brandId}}">
     <img src='{{v.pic.length == 0?"./images/none.png":v.pic[0].picAddr}}' alt="">
 
-    <span class="mui-ellipsis-2 mui-ellipsis-2">{{v.proDesc}}</span>
+    <span class="mui-ellipsis-2 mui-ellipsis-2">{{v.proName}}</span>
     <p>
       <span>&yen;{{v.price}}</span>
       <span>&yen;{{v.oldPrice}}</span>
     </p>
-    <button class="mui-btn-blue">立即购买</button>
+    <button class="buy_btn mui-btn-blue">立即购买</button>
   </a>
   {{/each}}
 
