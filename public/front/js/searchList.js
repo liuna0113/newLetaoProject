@@ -69,17 +69,7 @@ $(function () {
     // console.log("hehe");
     $this = $(this);
     $span = $this.find("span");
-    //先判断是不是黄的,如果是的话,就将自己的span的类(在up或者down之间)切换,
-    if ($this.hasClass("now")) {
-      // span不需要给其余的span加类或者不加类
-      $span.toggleClass("fa-angle-down").toggleClass("fa-angle-up");
-      // $this.toggleClass("now").siblings().removeClass("now");
-    } else {
-      //如果不是黄的,把他自己变黄,并且把其他兄弟的span的箭头都朝下,把自己的span朝上
-      $this.toggleClass("now").siblings().removeClass("now");
-      $(".lt_nav span").removeClass("fa-angle-up").addClass('fa-angle-down');
-    }
-    
+    //
     
   })
   
