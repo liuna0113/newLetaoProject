@@ -1,5 +1,4 @@
 $(function () {
-
   $form = $('#form');
   $form.bootstrapValidator({
     excluded: [':disabled', ':hidden', ':not(:visible)'],
@@ -10,24 +9,28 @@ $(function () {
     },
     fields: {
       username: {
-        notEmpty: {
-          message: "用户名不能为空"
-        },
-        callback: {
-          message: "用户名错误"
+        validators: {
+          notEmpty: {
+            message: "用户名不能为空"
+          },
+          callback: {
+            message: "用户名错误"
+          }
         }
       },
       password: {
-        notEmpty: {
-          message: "密码不能为空"
-        },
-        stringLength: {
-          min: 6,
-          max: 18,
-          message: "请输入6-18位密码串"
-        },
-        callback: {
-          message: "密码错误"
+        validators: {
+          notEmpty: {
+            message: "密码不能为空"
+          },
+          stringLength: {
+            min: 6,
+            max: 18,
+            message: "请输入6-18位密码串"
+          },
+          callback: {
+            message: "密码错误"
+          }
         }
       }
     }
